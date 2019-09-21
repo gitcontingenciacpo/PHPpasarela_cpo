@@ -6,6 +6,11 @@
 
   $url = '../api/ParamCont.php';
   $fileInclude = (file_exists($url)) ? $url : str_replace("/", "\\", $url);
+
+  if (!file_exists($fileInclude)) {
+    $fileInclude = '/var/www/html/PHPpasarela/api/ParamCont.php';
+  }
+  
   require_once $fileInclude;
   $DbParam = new ParamCont();
   /**

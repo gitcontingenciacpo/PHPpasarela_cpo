@@ -3,7 +3,7 @@
   //SGBD: MariaDB.
   require_once 'databasesql.php';
   require_once 'databasemysql.php';
-
+  
   $url = '../api/ParamCont.php';
   $fileInclude = (file_exists($url)) ? $url : str_replace("/", "\\", $url);
   require_once $fileInclude;
@@ -26,6 +26,7 @@
    * Carga constante Codigo Unidad -> CODIGOIPS
    */
   define('CODIGOIPS', $DbParam->getUnidadID());
+  
 
   //Para registrar productos es necesario iniciar los proveedores
   //de los mismos, por ello la variable controller para este
@@ -39,19 +40,23 @@
     require_once "$controller.controller.php";
     $controller = ucwords($controller) . 'Controller';
     $controller = new $controller;
-    $controller->Index();
+    $valid = $controller->Index(); 
   }
   else
   {
     // Obtiene el controlador a cargar
     $controller = strtolower($_REQUEST['c']);
     $accion = isset($_REQUEST['a']) ? $_REQUEST['a'] : 'Index';
-
+    
     // Instancia el controlador
     require_once "$controller.controller.php";
     $controller = ucwords($controller) . 'Controller';
     $controller = new $controller;
-
+    
     // Llama la accion
     call_user_func( array( $controller, $accion ) );
   }
+
+  $view = '../views/panel.html.php';
+  $viewInclude = (file_exists($view)) ? $view : str_replace("/", "\\", $view);
+  require_once $viewInclude;

@@ -27,7 +27,7 @@ class Proveedor
 		{
 			$result = array();
 			//Sentencia SQL para seleccion de datos.
-			$stm = $this->pdo->prepare("select * from citas WHERE CODIGOIPS = 1001 ORDER BY FECHA");
+			$stm = $this->pdo->prepare("select * from citas WHERE CODIGOIPS =" . CODIGOIPS . "ORDER BY FECHA");
 			//Ejecucion de la sentencia SQL.
 			$stm->execute();
 			//fetchAll — Devuelve un array que contiene todas las filas del conjunto

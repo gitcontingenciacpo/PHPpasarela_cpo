@@ -11,7 +11,8 @@ class Databasesql
     public static function Conectar()
     {
         //$pdo = new PDO('mysql:host=localhost;dbname=mvc_php;charset=utf8', 'root', '');
-		$pdo = new PDO('sqlsrv:server=10.10.8.154;Database=contingencia_unidad','ADMIN','TRIACON');
+        //$pdo = new PDO('sqlsrv:server=10.10.8.154;Database=contingencia_unidad','ADMIN','TRIACON');
+        $pdo = new PDO('sqlsrv:server=' . HOSTNAME_SQLSRV . ';Database=' . DBNAME_SQLSRV, DBUSER_SQLSRV, PASSWORD_SQLSRV);
         //Filtrando posibles errores de conexión.
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;

@@ -11,7 +11,7 @@ class Databasemysql
     public static function Conectar()
     {
         //$pdo = new PDO('mysql:host=10.10.74.47;dbname=contingencia_unidad;charset=utf8', 'admContinUnid', 'Colombia2012');
-	$pdo = new PDO('mysql:host=10.10.74.47;dbname=contingencia_unidad_uab;charset=utf8', 'admContinUnid', 'admContinUnid2018.');
+        $pdo = new PDO('mysql:host=' . HOSTNAME_MYSQL . ';dbname=' . DBNAME_MYSQL . ';charset=utf8', DBUSER_MYSQL, PASSWORD_MYSQL);
         //Filtrando posibles errores de conexión.
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $pdo;

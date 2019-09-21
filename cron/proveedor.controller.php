@@ -16,40 +16,55 @@ class ProveedorController{
 
     //Llamado plantilla principal
     public function Index(){
-		$this->ListarHistorias();
-		$this->UpdateHistorias();
-		$this->ListarHCOdontologia();
-    		$this->UpdateHCOdontologia();
-		$this->ListarOdontograma();
-    		$this->UpdateOdontograma();
-		$this->ListarTmpImprimibles();
-		$this->UpdateTmpImprimibles();
-		$this->ListarTmpIncapacidades();
-		$this->UpdateTmpIncapacidades();
-		//$this->ListarListaDocumentos();
-		//$this->UpdateListaDocumentos();
-		$this->ListarCitaUsada();
-		$this->UpdateCitaUsada();
-		$this->ListarTFControl();
-		$this->UpdateTFControl();
-		$this->ListarTFValoracion();
-		$this->UpdateTFValoracion();
-		$this->ListarTOControl();
-		$this->UpdateTOControl();
-		$this->ListarTOValoracion();
-		$this->UpdateTOValoracion();
-		$this->ListarFonoControl();
-		$this->UpdateFonoControl();
-		$this->ListarFonoValoracion();
-		$this->UpdateFonoValoracion();
-		$this->ListarEMinimental();
-		$this->UpdateEMinimental();
-		$this->ListarEADesarrollo();
+		try {
+			$this->ListarHistorias();
+			$this->UpdateHistorias();
+			$this->ListarHCOdontologia();
+				$this->UpdateHCOdontologia();
+			$this->ListarOdontograma();
+				$this->UpdateOdontograma();
+			$this->ListarTmpImprimibles();
+			$this->UpdateTmpImprimibles();
+			$this->ListarTmpIncapacidades();
+			$this->UpdateTmpIncapacidades();
+			//$this->ListarListaDocumentos();
+			//$this->UpdateListaDocumentos();
+			$this->ListarCitaUsada();
+			$this->UpdateCitaUsada();
+			$this->ListarTFControl();
+			$this->UpdateTFControl();
+			$this->ListarTFValoracion();
+			$this->UpdateTFValoracion();
+			$this->ListarTOControl();
+			$this->UpdateTOControl();
+			$this->ListarTOValoracion();
+			$this->UpdateTOValoracion();
+			$this->ListarFonoControl();
+			$this->UpdateFonoControl();
+			$this->ListarFonoValoracion();
+			$this->UpdateFonoValoracion();
+			$this->ListarEMinimental();
+			$this->UpdateEMinimental();
+			$this->ListarEADesarrollo();
+			$this->UpdateEADesarrollo();	
 		$this->UpdateEADesarrollo();	
-		$this->ListarIOswestry();
-		$this->UpdateIOswestry();
-		$this->ListarCitas();
-		$this->Sincronizacion();
+			$this->UpdateEADesarrollo();	
+			$this->ListarIOswestry();
+			$this->UpdateIOswestry();
+			$this->ListarCitas();
+			$this->Sincronizacion();
+			return $errorCont = array(
+				'message' => 'La operación se ejecuto correctamente', 
+				'valid_proccess' => TRUE
+			);
+		} catch (Error $e) {
+			return $errorCont = array(
+				'message' => $e->getMessage(), 
+				'file' => $e->getFile(), 
+				'line' => $e->getLine(),
+				'valid_proccess' => FALSE 
+			);
+		}
     }
 
 
